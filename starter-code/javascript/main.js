@@ -34,43 +34,39 @@ function clearSplits() {
 }
 
 function setStopBtn() {
-
+  btnLeft.setAttribute('class', 'btn stop');
+  btnLeft.innerHTML = 'STOP';
 }
 
 function setSplitBtn() {
-
+  btnRight.setAttribute('class', 'btn split');
+  btnRight.innerHTML = 'SPLIT';
 }
 
 function setStartBtn() {
-
+  btnLeft.setAttribute('class', 'btn start');
+  btnLeft.innerHTML = 'START';
 }
 
 function setResetBtn() {
-
+  btnRight.setAttribute('class', 'btn reset');
+  btnRight.innerHTML = 'RESET';
 }
 
 // Start/Stop Button
 btnLeft.addEventListener('click', function () {
-  let left = document.getElementById('btnLeft');
-  let leftAtt = left.getAttribute('class');
-  if (leftAtt === 'btn start') {
-    left.setAttribute('class', 'btn stop');
-    left.innerHTML = 'STOP';
+  if (btnLeft.getAttribute('class') === 'btn start') {
+    setStopBtn();
   } else {
-    left.setAttribute('class', 'btn start');
-    left.innerHTML = 'START';
+    setStartBtn();
   }
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', function () {
-  let right = document.getElementById('btnRight');
-  let rightAtt = right.getAttribute('class');
-  if (rightAtt === 'btn reset') {
-    right.setAttribute('class', 'btn split');
-    right.innerHTML = 'SPLIT';
+  if (btnRight.getAttribute('class') === 'btn reset') {
+    setSplitBtn();
   } else {
-    right.setAttribute('class', 'btn reset');
-    right.innerHTML = 'RESET';
+    setResetBtn();
   }
 });
