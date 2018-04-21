@@ -10,15 +10,24 @@ let milUni      = document.getElementById('milUni');
 
 
 function printTime() {
-
+  let print = setInterval( () => {
+    printSeconds();
+    printMinutes();
+  }, 1000);
 }
 
 function printMinutes() {
-
+  let timeMin = chronometer.twoDigitsNumber(chronometer.setMinutes());
+  minDec.innerHTML = timeMin[0];
+  minUni.innerHTML = timeMin[1];
+  console.log(minDec.innerHTML + minUni.innerHTML);
 }
 
 function printSeconds() {
-
+  let timeSec = chronometer.twoDigitsNumber(chronometer.setSeconds());
+  secDec.innerHTML = timeSec[0];
+  secUni.innerHTML = timeSec[1];
+  console.log(secDec.innerHTML + secUni.innerHTML);
 }
 
 function printMilliseconds() {
@@ -34,8 +43,10 @@ function clearSplits() {
 }
 
 function setStopBtn() {
+  printTime();
   btnLeft.setAttribute('class', 'btn stop');
   btnLeft.innerHTML = 'STOP';
+  chronometer.startClick();
 }
 
 function setSplitBtn() {
@@ -46,6 +57,7 @@ function setSplitBtn() {
 function setStartBtn() {
   btnLeft.setAttribute('class', 'btn start');
   btnLeft.innerHTML = 'START';
+  chronometer.stopClick();
 }
 
 function setResetBtn() {
